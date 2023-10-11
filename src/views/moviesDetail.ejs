@@ -18,6 +18,16 @@
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
     <br>
+    
+    <!-- Muestro los actores de la película -->
+    <h3>actores uwu: </h3>
+    <%if (movie.actors){ %> 
+        <% for (let j = 0; j < movie.actors.length; j++) { %>
+             <p><%= movie.actors[j].first_name %> , <%= movie.actors[j].last_name %> </p>
+        <% } %>
+    <%}%>
+        <br>
+        <br>
     <section>
         <!--Aquí debe colocar los botones de Modificar - Borrar y Listado de Películas-->
         <a class="botonAgregar" href="/movies/edit/<%=movie.id%>">Editar Pelicula</a>

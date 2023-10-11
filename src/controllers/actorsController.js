@@ -13,7 +13,7 @@ const Genres = db.Genre;
 const Actors = db.Actor;
 
 
-const moviesController = {
+module.exports = {
     'list': (req, res) => {
         db.Movie.findAll({
             include: ["genre"] // en los metodos find podemos incluir la relacionq que tine con otra tabla
@@ -95,21 +95,3 @@ const moviesController = {
         })
     }
 }
-
-module.exports = moviesController;
-// otra alternativa para editar y no hacer un chorizo de then
-// async function(req, res) {
-//     try {
-//         const Movie = await db.Movie.findByPk(req.params.id);
-//         const allGenres = await db.Genre.findAll();
-        
-//         res.render('moviesEdit', {
-//             allGenres: allGenres,
-//             Movie: Movie
-//         });
-//     } catch (error) {
-//         // Manejo de errores aquí
-//         console.error(error);
-//         res.status(500).send('Error interno del servidor');
-//     }
-// }
